@@ -8,7 +8,7 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   mode: 'production',
 
-  entry: './src/main.js',
+  entry: './src/index.js',
 
   output: {
   // 出力するファイル名
@@ -43,7 +43,25 @@ module.exports = {
              : MiniCssExtractPlugin.loader,
            'css-loader'
          ]
+       },
+       {
+         test: /\.(jpg|png)$/,
+         loaders: 'url-loader'
        }
+       /*{
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          use: [
+             'file-loader',
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                webp: {
+                  quality: 80
+                }
+              }
+            }
+          ]
+        }*/
     ]
 
   },
