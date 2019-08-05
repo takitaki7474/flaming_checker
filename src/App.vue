@@ -2,8 +2,9 @@
   <v-app>
     <v-app-bar app color="red accent-3" dark>
       <v-toolbar-title class="headline text-uppercase">
-        <span class="font-weight-light">炎上チェッカー</span>
+        <span class="font-weight-bold font-italic">炎上チェッカー</span>
       </v-toolbar-title>
+      <!--
       <v-spacer></v-spacer>
       <v-btn
         text
@@ -12,6 +13,7 @@
       >
         <span class="mr-2">Latest Release</span>
       </v-btn>
+    -->
     </v-app-bar>
 
     <v-content>
@@ -32,3 +34,13 @@ export default {
   }),
 };
 </script>
+
+<style>
+.v-toolbar__content {
+  justify-content: center;
+}
+.bar {
+  display: flex;
+  justify-content: center;
+}
+</style>
