@@ -1,28 +1,23 @@
-
-
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title>
-        <span>aaa</span>
-      </v-toolbar-title>
-    </v-toolbar>
-    <img alt="Vue logo" :src="image_src">
-    <Header />
+    <v-app-bar app>
+      <Header />
+    </v-app-bar>
+    <v-content>
+      {{name}}
+    </v-content>
   </v-app>
 </template>
 
 
 <script>
-import Header from "./Header.vue";
+import Header from "./components/Header.vue";
 export default {
   components: {
     Header
   },
-  data () {
-      return {
-          image_src: require("./images/logo.png") // ←
-      }
-  }
+  data: () => ({
+    name: "aaa"
+  }),
 }
 </script>

@@ -2,13 +2,14 @@ const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
 //const ExtractTextPlugin = require('extract-text-webpack-plugin')
 var MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 //const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   mode: 'production',
 
-  entry: './src/index.js',
+  entry: './src/main.js',
 
   output: {
   // 出力するファイル名
@@ -82,7 +83,8 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({filename: 'style.css'})
+    new MiniCssExtractPlugin({filename: 'style.css'}),
+    new VuetifyLoaderPlugin()
     //new ExtractTextPlugin({ filename: 'common.[chunkhash].css' })
   ]
 }
