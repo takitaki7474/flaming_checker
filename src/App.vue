@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app color="indigo" dark>
       <v-toolbar-title class="headline text-uppercase">
         <span class="font-weight-light">炎上チェッカー</span>
       </v-toolbar-title>
