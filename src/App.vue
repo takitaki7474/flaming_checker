@@ -25,12 +25,12 @@
       </v-container>
 
       <v-container fluid fill-height justify-center style="height: 100px;">
-        <v-layout wrap class="align-center justify-center row">
-          <v-flex xs12 sm6 class="form-select-btn">
-            <v-btn small color="primary">Primary</v-btn>
+        <v-layout wrap class="align-center justify-center row" style="height: 100px;">
+          <v-flex xs12 class="form-select-btn">
+            <v-btn rounded small color="warning" class="select-btn" style="font-weight: bold;">画像をアップロード</v-btn>
           </v-flex>
-          <v-flex xs12 sm6 class="form-select-btn">
-            <v-btn small color="primary">Primary</v-btn>
+          <v-flex xs12 class="form-select-btn">
+            <v-btn rounded small color="warning" class="select-btn" style="font-weight: bold;">テキストを入力</v-btn>
           </v-flex>
         </v-layout>
       </v-container>
@@ -65,6 +65,10 @@ export default {
 .form-select-btn {
   display: flex;
   justify-content: center;
+}
+.select-btn {
+  width: 200px;
+  font-weight: bold;
 }
 
 </style>
