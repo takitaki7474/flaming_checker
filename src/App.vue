@@ -18,7 +18,7 @@
       </div>
       <v-container fluid fill-height justify-center style="height: 100px;">
         <v-layout wrap class="align-center justify-center row" style="height: 100px;">
-          <UploadBtn v-on:changeScreen="changeImageCheckScreen"></UploadBtn>
+          <UploadBtn v-on:changeScreen="changeImageCheckScreen" v-on:changeURL="changeDisplayURL"></UploadBtn>
           <InputTextBtn></InputTextBtn>
         </v-layout>
       </v-container>
@@ -43,11 +43,17 @@ export default {
     ImageCheckScreen,
   },
   data: () => ({
-    screenType: "home"
+    screenType: "home",
+    displayURL: ""
   }),
   methods: {
     changeImageCheckScreen() {
       this.screenType = "imageCheck";
+    },
+    changeDisplayURL(img_url) {
+      console.log(img_url);
+      this.displayURL = img_url;
+      console.log("aaaa" + this.displayURL);
     }
   }
 };

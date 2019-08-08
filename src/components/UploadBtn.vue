@@ -51,6 +51,7 @@ export default {
           },
         }
       ).then(result => {
+        this.$emit('changeURL',result.data.img_url);
         console.log(result.data.img_url);
       }).catch(error => {
         console.log("uploading failure");
