@@ -27,10 +27,7 @@
       <v-container fluid fill-height justify-center style="height: 100px;">
         <v-layout wrap class="align-center justify-center row" style="height: 100px;">
           <UploadBtn></UploadBtn>
-
-          <v-flex xs12 class="form-select-btn">
-            <v-btn rounded small color="warning" class="select-btn" style="font-weight: bold;">テキストを入力</v-btn>
-          </v-flex>
+          <InputTextBtn></InputTextBtn>
         </v-layout>
       </v-container>
 
@@ -40,11 +37,13 @@
 
 <script>
 import UploadBtn from './components/UploadBtn.vue';
+import InputTextBtn from './components/InputTextBtn.vue';
 
 export default {
   name: 'App',
   components: {
     UploadBtn,
+    InputTextBtn,
   },
   data: () => ({
     //
