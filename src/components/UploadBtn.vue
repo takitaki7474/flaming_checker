@@ -26,6 +26,7 @@ export default {
       const files = e.target.files;
       this.createImage(files[0]);
       this.img_name = files[0].name;
+      this.$emit('changeScreen');
     },
     createImage(file) {
       const reader = new FileReader();

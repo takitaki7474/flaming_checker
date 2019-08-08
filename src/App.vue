@@ -10,10 +10,15 @@
 
 
     <v-content>
-      <HomeScreen></HomeScreen/>
+      <div v-if="screenType === 'home'">
+        <HomeScreen></HomeScreen>
+      </div>
+      <div v-else-if="screenType === 'imageCheck'">
+        <ImageCheckScreen></ImageCheckScreen>
+      </div>
       <v-container fluid fill-height justify-center style="height: 100px;">
         <v-layout wrap class="align-center justify-center row" style="height: 100px;">
-          <UploadBtn></UploadBtn>
+          <UploadBtn v-on:changeScreen="changeImageCheckScreen"></UploadBtn>
           <InputTextBtn></InputTextBtn>
         </v-layout>
       </v-container>
@@ -27,6 +32,7 @@
 import UploadBtn from './components/UploadBtn.vue';
 import InputTextBtn from './components/InputTextBtn.vue';
 import HomeScreen from './components/HomeScreen.vue';
+import ImageCheckScreen from './components/ImageCheckScreen.vue';
 
 export default {
   name: 'App',
@@ -34,10 +40,16 @@ export default {
     UploadBtn,
     InputTextBtn,
     HomeScreen,
+    ImageCheckScreen,
   },
   data: () => ({
-    //
+    screenType: "home"
   }),
+  methods: {
+    changeImageCheckScreen() {
+      this.screenType = "imageCheck";
+    }
+  }
 };
 </script>
 
