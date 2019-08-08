@@ -26,9 +26,8 @@
 
       <v-container fluid fill-height justify-center style="height: 100px;">
         <v-layout wrap class="align-center justify-center row" style="height: 100px;">
-          <v-flex xs12 class="form-select-btn">
-            <v-btn rounded small color="warning" class="select-btn" style="font-weight: bold;">画像をアップロード</v-btn>
-          </v-flex>
+          <UploadBtn></UploadBtn>
+
           <v-flex xs12 class="form-select-btn">
             <v-btn rounded small color="warning" class="select-btn" style="font-weight: bold;">テキストを入力</v-btn>
           </v-flex>
@@ -40,12 +39,12 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import UploadBtn from './components/UploadBtn.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    UploadBtn,
   },
   data: () => ({
     //
