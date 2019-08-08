@@ -14,7 +14,7 @@
         <HomeScreen></HomeScreen>
       </div>
       <div v-else-if="screenType === 'imageCheck'">
-        <ImageCheckScreen></ImageCheckScreen>
+        <ImageCheckScreen v-bind:img-url="displayURL"></ImageCheckScreen>
       </div>
       <v-container fluid fill-height justify-center style="height: 100px;">
         <v-layout wrap class="align-center justify-center row" style="height: 100px;">
@@ -51,9 +51,9 @@ export default {
       this.screenType = "imageCheck";
     },
     changeDisplayURL(img_url) {
-      console.log(img_url);
       this.displayURL = img_url;
-      console.log("aaaa" + this.displayURL);
+      console.log("aa"+img_url);
+      console.log("bb"+this.displayURL);
     }
   }
 };

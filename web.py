@@ -10,6 +10,7 @@ app = Flask(__name__, static_folder="./src", template_folder="./templates")
 app.config["DEBUG"] = True
 
 UPLOAD_FOLDER = './src/save_images'
+REF_FOLDER = '/src/save_images'
 
 @app.route("/")
 def index():
@@ -28,7 +29,8 @@ def post():
 
             raw_img_url = os.path.join(UPLOAD_FOLDER, "raw_" + secure_filename(img_file.filename))
             cv2.imwrite(raw_img_url, img)
-            dic["img_url"] = raw_img_url
+            ref_img_url = os.path.join(REF_FOLDER, "raw_" + secure_filename(img_file.filename))
+            dic["img_url"] = ref_img_url
         else:
             pass
     else:
