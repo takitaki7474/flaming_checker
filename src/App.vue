@@ -17,7 +17,7 @@
     </v-app-bar>
 
     <v-content>
-
+      
       <v-container fluid fill-height justify-center style="height: 500px;">
         <v-layout wrap class="align-center justify-center row">
           <p class="home-text">炎上度をチェックします.<br>画像またはテキストをアップロードしてください.</p>
