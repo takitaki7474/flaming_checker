@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "UploadBtn",
   data: () => ({
@@ -25,6 +27,7 @@ export default {
     uploadImageFile(e) {
       const files = e.target.files;
       this.createImage(files[0]);
+      this.postParam(files[0]);
       this.img_name = files[0].name;
       this.$emit('changeScreen');
     },
@@ -35,6 +38,25 @@ export default {
       };
       reader.readAsDataURL(file);
     },
+    postParam(file) {
+      const params = new FormData();
+      params.append("file-submit", file);
+
+      axios.post(
+        'http://localhost:5000/post',
+        params,
+        {
+          headers: {
+            'content-type': 'multipart/form-data',
+          },
+        }
+      ).then(result => {
+        console.log(result.data.img_url);
+      }).catch(error => {
+        console.log("uploading failure");
+      });
+
+    }
   }
 };
 </script>
