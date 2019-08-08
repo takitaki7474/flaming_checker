@@ -7,7 +7,6 @@
   <v-flex xs12 class="upload-form">
     <v-btn v-on:click="inputClick" rounded small color="warning" class="select-btn" style="font-weight: bold;">画像をアップロード</v-btn>
     <input class="form-button" type="file" name="file-submit" id="upload-btn" v-on:change="uploadImageFile"/>
-    <img v-show="uploadedImage" class="preview-item-file" :src="uploadedImage" alt="" />
   </v-flex>
 </template>
 
@@ -35,8 +34,11 @@ export default {
       const reader = new FileReader();
       reader.onload = e => {
         this.uploadedImage = e.target.result;
+        this.$emit('changeURL',this.uploadedImage);
       };
       reader.readAsDataURL(file);
+
+
     },
     postParam(file) {
       const params = new FormData();
@@ -51,7 +53,6 @@ export default {
           },
         }
       ).then(result => {
-        this.$emit('changeURL',result.data.img_url);
         console.log(result.data.img_url);
       }).catch(error => {
         console.log("uploading failure");

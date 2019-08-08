@@ -2,7 +2,7 @@
 
   <v-container fluid fill-height justify-center style="height: 500px;">
     <v-layout wrap class="align-center justify-center row">
-      <img v-bind:src="imgUrl"/>
+      <img v-show="imgUrl" v-bind:src="imgUrl"/>
     </v-layout>
   </v-container>
 

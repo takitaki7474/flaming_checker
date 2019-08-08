@@ -52,8 +52,6 @@ export default {
     },
     changeDisplayURL(img_url) {
       this.displayURL = img_url;
-      console.log("aa"+img_url);
-      console.log("bb"+this.displayURL);
     }
   }
 };
