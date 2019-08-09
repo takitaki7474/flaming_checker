@@ -7,21 +7,33 @@
       </v-toolbar-title>
     </v-app-bar>
 
-
-
     <v-content>
-      <div v-if="screenType === 'home'">
-        <HomeScreen></HomeScreen>
-      </div>
-      <div v-else-if="screenType === 'imageCheck'">
-        <ImageCheckScreen v-bind:img-url="displayURL"></ImageCheckScreen>
-      </div>
-      <v-container fluid fill-height justify-center style="height: 100px;">
-        <v-layout wrap class="align-center justify-center row" style="height: 100px;">
-          <UploadBtn v-on:changeScreen="changeImageCheckScreen" v-on:changeURL="changeDisplayURL"></UploadBtn>
-          <InputTextBtn></InputTextBtn>
+
+      <v-container fluid fill-height>
+        <v-layout wrap>
+
+          <v-flex xs12>
+            <div v-if="screenType === 'home'">
+              <HomeScreen></HomeScreen>
+            </div>
+            <div v-else-if="screenType === 'imageCheck'">
+              <ImageCheckScreen v-bind:img-url="displayURL"></ImageCheckScreen>
+            </div>
+          </v-flex>
+
+          <v-flex xs12>
+            <v-container fluid fill-height justify-center>
+              <v-layout wrap class="align-center justify-center row" style="height: 100px;">
+                <UploadBtn v-on:changeScreen="changeImageCheckScreen" v-on:changeURL="changeDisplayURL"></UploadBtn>
+                <InputTextBtn></InputTextBtn>
+              </v-layout>
+            </v-container>
+          </v-flex>
+
         </v-layout>
       </v-container>
+
+
     </v-content>
 
   </v-app>
