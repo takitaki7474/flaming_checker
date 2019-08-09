@@ -143,8 +143,12 @@ export default {
        },
        options: {
          animation: {
-           animationEasing: 'easeInOutQuart',
-           animationSteps: 80,
+           easing: 'easeInOutQuart',
+           duration: 3000,
+           onComplete: function(animation) {
+             console.log("stop")
+           }
+
          },
          legend: {
            display: false
