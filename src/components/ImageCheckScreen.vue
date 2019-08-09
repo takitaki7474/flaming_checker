@@ -60,19 +60,53 @@
         <v-layout wrap>
 
 
-          <v-flex xs12x>
+          <v-flex xs12>
             <v-container fluid fill-height class="img-bar-container">
-              <p>aaaa</p>
+              <v-layout wrap>
+
+
+                <v-flex xs12 sm8>
+                  <v-container fluid fill-height class="img-container">
+                    <img v-show="imgUrl" v-bind:src="imgUrl" class="display-img"/>
+                  </v-container>
+                </v-flex>
+
+
+                <v-flex xs12 sm2>
+                  <v-container fluid fill-height class="bar-container">
+                    <p>bar</p>
+                  </v-container>
+                </v-flex>
+
+
+              </v-layout>
             </v-container>
           </v-flex>
 
 
           <v-flex xs12>
             <v-container fluid fill-height class="mark-text-container">
-              <p>bbbb</p>
+              <v-layout wrap>
+
+
+                <v-flex xs2>
+                  <v-container fluid fill-height class="mark-container">
+                    <p>mark</p>
+                  </v-container>
+                </v-flex>
+
+
+                <v-flex xs8>
+                  <v-container fluid fill-height class="text-container">
+                    <p>text</p>
+                  </v-container>
+                </v-flex>
+
+
+              </v-layout>
             </v-container>
           </v-flex>
-
+          
 
         </v-layout>
       </v-container>
