@@ -129,8 +129,8 @@ export default {
 
   }),
   mounted: function() {
-     const ctx = document.getElementById("flaming-bar");
-     const flamingBar = new Chart(ctx, {
+     var ctx = document.getElementById("flaming-bar");
+     var flamingBar = new Chart(ctx, {
        type: 'bar',
        data: {
          labels: ['炎上度'],
@@ -142,12 +142,25 @@ export default {
          ]
        },
        options: {
+         animation: {
+           animationEasing: 'easeInOutQuart',
+           animationSteps: 80,
+         },
+         legend: {
+           display: false
+         },
          scales: {
            yAxes: [{
               ticks: {
                 suggestedMax: 100,
                 suggestedMin: 0,
-                stepSize: 5,
+                stepSize: 10,
+                fontSize: 20,
+              }
+            }],
+            xAxes: [{
+              ticks: {
+                fontSize: 20
               }
             }]
          }
@@ -159,8 +172,9 @@ export default {
 
 <style>
 .display-img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
+  border: 1px solid;
 }
 /*
 .check-screen-container {
