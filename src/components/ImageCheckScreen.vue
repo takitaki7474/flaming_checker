@@ -72,9 +72,9 @@
                 </v-flex>
 
 
-                <v-flex xs12 sm2 class="container-el">
+                <v-flex xs12 sm4 class="container-el">
                   <v-container fluid fill-height class="bar-container">
-                    <p>bar</p>
+                    <canvas id="flaming-bar" width="400" height="1000"></canvas>
                   </v-container>
                 </v-flex>
 
@@ -118,6 +118,7 @@
 </template>
 
 <script>
+import Chart from 'chart.js';
 
 export default {
   name: 'ImageCheckScreen',
@@ -127,6 +128,32 @@ export default {
   data: () => ({
 
   }),
+  mounted: function() {
+     const ctx = document.getElementById("flaming-bar");
+     const flamingBar = new Chart(ctx, {
+       type: 'bar',
+       data: {
+         labels: ['炎上度'],
+         datasets: [
+           {
+             data: [60],
+             backgroundColor: "rgba(219,39,91,0.5)",
+           }
+         ]
+       },
+       options: {
+         scales: {
+           yAxes: [{
+              ticks: {
+                suggestedMax: 100,
+                suggestedMin: 0,
+                stepSize: 5,
+              }
+            }]
+         }
+       }
+     });
+  }
 };
 </script>
 
