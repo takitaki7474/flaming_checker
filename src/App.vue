@@ -17,7 +17,7 @@
               <HomeScreen></HomeScreen>
             </div>
             <div v-else-if="screenType === 'imageCheck'">
-              <ImageCheckScreen v-bind:img-url="displayURL"></ImageCheckScreen>
+              <ImageCheckScreen v-bind:img-url="displayURL" v-bind:random-num="randomNum"></ImageCheckScreen>
             </div>
           </v-flex>
 
@@ -56,7 +56,8 @@ export default {
   },
   data: () => ({
     screenType: "home",
-    displayURL: ""
+    displayURL: "",
+    randomNum: 70,
   }),
   methods: {
     changeImageCheckScreen() {
@@ -64,6 +65,9 @@ export default {
     },
     changeDisplayURL(img_url) {
       this.displayURL = img_url;
+      var min = 0 ;
+      var max = 100 ;
+      this.randomNum = Math.floor( Math.random() * (max + 1 - min) ) + min ;
     }
   }
 };

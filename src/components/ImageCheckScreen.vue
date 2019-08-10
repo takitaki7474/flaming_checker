@@ -16,7 +16,7 @@
 
                 <v-flex xs12 sm8 class="container-el">
                   <v-container fluid fill-height class="img-container">
-                    <img v-show="imgUrl" v-bind:src="imgUrl" class="display-img"/>
+                    <img v-show="imgUrl" v-bind:src="imgUrl" v-on:load="drawChart" class="display-img"/>
                   </v-container>
                 </v-flex>
 
@@ -74,52 +74,54 @@ export default {
   name: 'ImageCheckScreen',
   props: {
     imgUrl: String,
+    randomNum: Number,
   },
   data: () => ({
-
   }),
-  mounted: function() {
-     var ctx = document.getElementById("flaming-bar");
-     var flamingBar = new Chart(ctx, {
-       type: 'bar',
-       data: {
-         labels: ['炎上度'],
-         datasets: [
-           {
-             data: [60],
-             backgroundColor: "rgba(219,39,91,0.5)",
-           }
-         ]
-       },
-       options: {
-         animation: {
-           easing: 'easeInOutQuart',
-           duration: 3000,
-           onComplete: function(animation) {
-             console.log("stop")
-           }
+  methods: {
+    drawChart: function() {
+      var ctx = document.getElementById("flaming-bar");
+      var flamingBar = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['炎上度'],
+          datasets: [
+            {
+              data: [this.randomNum],
+              backgroundColor: "rgba(219,39,91,0.5)",
+            }
+          ]
+        },
+        options: {
+          animation: {
+            easing: 'easeInOutQuart',
+            duration: 3000,
+            onComplete: function(animation) {
+              console.log("stop")
+            }
 
-         },
-         legend: {
-           display: false
-         },
-         scales: {
-           yAxes: [{
-              ticks: {
-                suggestedMax: 100,
-                suggestedMin: 0,
-                stepSize: 10,
-                fontSize: 20,
-              }
-            }],
-            xAxes: [{
-              ticks: {
-                fontSize: 20
-              }
-            }]
-         }
-       }
-     });
+          },
+          legend: {
+            display: false
+          },
+          scales: {
+            yAxes: [{
+               ticks: {
+                 suggestedMax: 100,
+                 suggestedMin: 0,
+                 stepSize: 10,
+                 fontSize: 20,
+               }
+             }],
+             xAxes: [{
+               ticks: {
+                 fontSize: 20
+               }
+             }]
+          }
+        }
+      });
+    }
   }
 };
 </script>
