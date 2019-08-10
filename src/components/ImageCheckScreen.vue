@@ -77,50 +77,57 @@ export default {
     randomNum: Number,
   },
   data: () => ({
+    flamingBar: "",
   }),
+  mounted() {
+    var ctx = document.getElementById("flaming-bar");
+    this.flamingBar = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['炎上度'],
+        datasets: [
+          {
+            data: [this.randomNum],
+            backgroundColor: "rgba(219,39,91,0.5)",
+          }
+        ]
+      },
+      options: {
+        animation: {
+          easing: 'easeInOutQuart',
+          duration: 3000,
+          onComplete: function(animation) {
+            console.log("stop")
+          }
+        },
+        legend: {
+          display: false
+        },
+        scales: {
+          yAxes: [{
+             ticks: {
+               suggestedMax: 100,
+               suggestedMin: 0,
+               stepSize: 10,
+               fontSize: 20,
+             }
+           }],
+           xAxes: [{
+             ticks: {
+               fontSize: 20
+             }
+           }]
+        }
+      }
+    });
+  },
   methods: {
     drawChart: function() {
-      var ctx = document.getElementById("flaming-bar");
-      var flamingBar = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['炎上度'],
-          datasets: [
-            {
-              data: [this.randomNum],
-              backgroundColor: "rgba(219,39,91,0.5)",
-            }
-          ]
-        },
-        options: {
-          animation: {
-            easing: 'easeInOutQuart',
-            duration: 3000,
-            onComplete: function(animation) {
-              console.log("stop")
-            }
-
-          },
-          legend: {
-            display: false
-          },
-          scales: {
-            yAxes: [{
-               ticks: {
-                 suggestedMax: 100,
-                 suggestedMin: 0,
-                 stepSize: 10,
-                 fontSize: 20,
-               }
-             }],
-             xAxes: [{
-               ticks: {
-                 fontSize: 20
-               }
-             }]
-          }
-        }
-      });
+      console.log(this.randomNum);
+      console.log(this.flamingBar.dataset);
+      this.flamingBar.data.datasets[0].data[0] = this.randomNum
+      console.log(this.flamingBar.data.datasets[0].data);
+      this.flamingBar.update();
     }
   }
 };
