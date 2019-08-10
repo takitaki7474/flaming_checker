@@ -41,15 +41,17 @@
 
 
                 <v-flex xs2 class="container-el">
-                  <v-container fluid fill-height class="mark-container">
+                  <v-container fluid fill-height justify-center align-center class="mark-container">
                     <v-icon :size="fireSize" color="orange darken-2">whatshot</v-icon>
                   </v-container>
                 </v-flex>
 
 
-                <v-flex xs8 class="container-el">
-                  <v-container fluid fill-height class="text-container">
-                    <p>text</p>
+                <v-flex xs10 class="container-el">
+                  <v-container fluid fill-height justify-center align-center class="text-container">
+                    <v-card raised class="comment-card">
+                      <p style="margin:0;">text</p>
+                    </v-card>
                   </v-container>
                 </v-flex>
 
@@ -101,7 +103,6 @@ export default {
           easing: 'easeInOutQuart',
           duration: 3000,
           onComplete: function(animation) {
-            console.log("aa")
             me.drawFire();
           }
         },
@@ -128,12 +129,18 @@ export default {
   },
   methods: {
     drawChart: function() {
+      this.fireSize = 0;
       this.flamingBar.data.datasets[0].data[0] = this.randomNum
       this.flamingBar.update();
     },
     drawFire: function() {
-      console.log("bb")
-      this.fireSize = this.randomNum;
+      var fire_size;
+      if (this.randomNum < 30) {
+        fire_size = 30;
+      } else {
+        fire_size = this.randomNum;
+      }
+      this.fireSize = fire_size;
     }
   }
 };
@@ -143,6 +150,13 @@ export default {
 .display-img {
   width: 40vmin;
   height: 40vmin;
+}
+.comment-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
 }
 
 </style>
