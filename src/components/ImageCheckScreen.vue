@@ -126,8 +126,8 @@ export default {
 
 <style>
 .display-img {
-  width: 80%;
-  height: 80%;
+  width: 40vmin;
+  height: 40vmin;
   border: 1px solid;
 }
 
