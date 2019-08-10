@@ -16,7 +16,9 @@
 
                 <v-flex xs12 sm8 class="container-el">
                   <v-container fluid fill-height class="img-container">
-                    <img v-show="imgUrl" v-bind:src="imgUrl" v-on:load="drawChart" class="display-img"/>
+                    <v-card raised>
+                      <img v-show="imgUrl" v-bind:src="imgUrl" v-on:load="drawChart" class="display-img"/>
+                    </v-card>
                   </v-container>
                 </v-flex>
 
@@ -40,7 +42,7 @@
 
                 <v-flex xs2 class="container-el">
                   <v-container fluid fill-height class="mark-container">
-                    <p>mark</p>
+                    <v-icon :size="fireSize" color="orange darken-2">whatshot</v-icon>
                   </v-container>
                 </v-flex>
 
@@ -78,6 +80,7 @@ export default {
   },
   data: () => ({
     flamingBar: "",
+    fireSize: 0,
   }),
   mounted() {
     var me = this;
@@ -98,7 +101,8 @@ export default {
           easing: 'easeInOutQuart',
           duration: 3000,
           onComplete: function(animation) {
-            console.log(me.randomNum);
+            console.log("aa")
+            me.drawFire();
           }
         },
         legend: {
@@ -126,6 +130,10 @@ export default {
     drawChart: function() {
       this.flamingBar.data.datasets[0].data[0] = this.randomNum
       this.flamingBar.update();
+    },
+    drawFire: function() {
+      console.log("bb")
+      this.fireSize = this.randomNum;
     }
   }
 };
@@ -135,7 +143,6 @@ export default {
 .display-img {
   width: 40vmin;
   height: 40vmin;
-  border: 1px solid;
 }
 
 </style>
