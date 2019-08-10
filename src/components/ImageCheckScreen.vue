@@ -80,7 +80,7 @@ export default {
     flamingBar: "",
   }),
   mounted() {
-    console.log(this.randomNum);
+    var me = this;
     var ctx = document.getElementById("flaming-bar");
     this.flamingBar = new Chart(ctx, {
       type: 'bar',
@@ -98,7 +98,7 @@ export default {
           easing: 'easeInOutQuart',
           duration: 3000,
           onComplete: function(animation) {
-            console.log("stop");
+            console.log(me.randomNum);
           }
         },
         legend: {
