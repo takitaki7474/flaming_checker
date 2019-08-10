@@ -80,6 +80,7 @@ export default {
     flamingBar: "",
   }),
   mounted() {
+    console.log(this.randomNum);
     var ctx = document.getElementById("flaming-bar");
     this.flamingBar = new Chart(ctx, {
       type: 'bar',
@@ -97,7 +98,7 @@ export default {
           easing: 'easeInOutQuart',
           duration: 3000,
           onComplete: function(animation) {
-            console.log("stop")
+            console.log("stop");
           }
         },
         legend: {
@@ -123,10 +124,7 @@ export default {
   },
   methods: {
     drawChart: function() {
-      console.log(this.randomNum);
-      console.log(this.flamingBar.dataset);
       this.flamingBar.data.datasets[0].data[0] = this.randomNum
-      console.log(this.flamingBar.data.datasets[0].data);
       this.flamingBar.update();
     }
   }
