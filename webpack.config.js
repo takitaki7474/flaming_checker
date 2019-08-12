@@ -27,7 +27,7 @@ module.exports = {
         options: {
           //extractCSS: isProduction,
           loaders: {
-            scss: "vue-style-loader"
+            scss: "vue-style-loader!css-loader!sass-loader"
           }
         }
       },
@@ -42,7 +42,7 @@ module.exports = {
            process.env.NODE_ENV !== 'production'
              ? 'vue-style-loader'
              : MiniCssExtractPlugin.loader,
-           'css-loader'
+           'css-loader',
          ]
        },
        {

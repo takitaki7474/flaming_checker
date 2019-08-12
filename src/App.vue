@@ -103,4 +103,34 @@ export default {
   width: 200px;
   font-weight: bold;
 }
+@media screen and (min-width:600px){
+  .display-img{
+    width: 40vmin;
+    height: 40vmin;
+  }
+  .comment-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+  }
+}
+@media screen and (max-width:600px){
+  .display-img {
+    width: 80vmin;
+    height: 80vmin;
+  }
+  .container {
+    padding: 0;
+  }
+  .img-container {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+  }
+  .bar-container {
+    display: none !important;
+  }
+}
 </style>

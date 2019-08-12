@@ -147,16 +147,5 @@ export default {
 </script>
 
 <style>
-.display-img {
-  width: 40vmin;
-  height: 40vmin;
-}
-.comment-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100px;
-}
 
 </style>
