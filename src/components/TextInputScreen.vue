@@ -22,7 +22,7 @@ import axios from 'axios';
 import TextCheckBtn from "./TextCheckBtn.vue";
 
 export default {
-  name: 'inputTextScreen',
+  name: 'TextInputScreen',
   components: {
     TextCheckBtn,
   },
@@ -33,6 +33,7 @@ export default {
   methods: {
     changeTextCheckScreen: function() {
       this.postParam(this.message);
+      this.$emit("changeScreen");
       console.log("change to TextCheckScreen");
     },
     postParam(textData) {

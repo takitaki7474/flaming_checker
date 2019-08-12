@@ -20,7 +20,10 @@
               <ImageCheckScreen v-bind:img-url="displayURL" v-bind:random-num="randomNum"></ImageCheckScreen>
             </div>
             <div v-else-if="screenType === 'inputText'">
-              <TextInputScreen></TextInputScreen>
+              <TextInputScreen v-on:changeScreen="changeTextCheckScreen"></TextInputScreen>
+            </div>
+            <div v-else-if="screenType === 'textCheck'">
+              <TextCheckScreen></TextCheckScreen>
             </div>
           </v-flex>
 
@@ -49,6 +52,7 @@ import TextInputBtn from './components/TextInputBtn.vue';
 import HomeScreen from './components/HomeScreen.vue';
 import ImageCheckScreen from './components/ImageCheckScreen.vue';
 import TextInputScreen from './components/TextInputScreen.vue';
+import TextCheckScreen from './components/TextCheckScreen.vue';
 
 
 export default {
@@ -59,6 +63,7 @@ export default {
     HomeScreen,
     ImageCheckScreen,
     TextInputScreen,
+    TextCheckScreen,
   },
   data: () => ({
     screenType: "home",
@@ -70,9 +75,12 @@ export default {
       this.screenType = "imageCheck";
     },
     changeTextInputScreen() {
-      console.log("changed screen");
       this.screenType = "inputText";
     },
+    changeTextCheckScreen() {
+      this.screenType = "textCheck";
+    },
+
     changeDisplayURL(img_url) {
       this.displayURL = img_url;
       var min = 0 ;
