@@ -23,7 +23,7 @@
               <TextInputScreen v-on:changeScreen="changeTextCheckScreen"></TextInputScreen>
             </div>
             <div v-else-if="screenType === 'textCheck'">
-              <TextCheckScreen></TextCheckScreen>
+              <TextCheckScreen v-bind:random-num="randomNum"></TextCheckScreen>
             </div>
           </v-flex>
 
