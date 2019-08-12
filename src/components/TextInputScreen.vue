@@ -3,7 +3,7 @@
 <v-container fluid fill-height justify-center>
   <v-layout wrap class="align-center justify-center row">
     <v-flex xs12 sm10 md8 lg6 xl4>
-      <v-textarea color="teal" rows="20">
+      <v-textarea v-model="message" color="teal" rows="20">
          <template v-slot:label>
            <div>
              投稿前のテキストを入力してください
@@ -11,6 +11,7 @@
          </template>
        </v-textarea>
     </v-flex>
+    {{message}}
     <TextCheckBtn v-on:changeScreen="changeTextCheckScreen"></TextCheckBtn>
   </v-layout>
 </v-container>
@@ -26,11 +27,13 @@ export default {
     TextCheckBtn,
   },
   data: () => ({
+    message: ""
 
   }),
   methods: {
     changeTextCheckScreen: function() {
-      console.log("change to TextCheckScreen")
+      console.log(this.message);
+      console.log("change to TextCheckScreen");
     }
 
   }

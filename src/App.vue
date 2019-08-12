@@ -28,7 +28,7 @@
             <v-container fluid fill-height justify-center>
               <v-layout wrap class="align-center justify-center row" style="height: 100px;">
                 <UploadBtn v-on:changeScreen="changeImageCheckScreen" v-on:changeURL="changeDisplayURL"></UploadBtn>
-                <InputTextBtn v-on:changeScreen="changeTextInputScreen"></InputTextBtn>
+                <TextInputBtn v-on:changeScreen="changeTextInputScreen"></TextInputBtn>
               </v-layout>
             </v-container>
           </v-flex>
@@ -45,7 +45,7 @@
 
 <script>
 import UploadBtn from './components/UploadBtn.vue';
-import InputTextBtn from './components/InputTextBtn.vue';
+import TextInputBtn from './components/TextInputBtn.vue';
 import HomeScreen from './components/HomeScreen.vue';
 import ImageCheckScreen from './components/ImageCheckScreen.vue';
 import TextInputScreen from './components/TextInputScreen.vue';
@@ -55,7 +55,7 @@ export default {
   name: 'App',
   components: {
     UploadBtn,
-    InputTextBtn,
+    TextInputBtn,
     HomeScreen,
     ImageCheckScreen,
     TextInputScreen,
