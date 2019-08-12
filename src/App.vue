@@ -25,7 +25,7 @@
             <v-container fluid fill-height justify-center>
               <v-layout wrap class="align-center justify-center row" style="height: 100px;">
                 <UploadBtn v-on:changeScreen="changeImageCheckScreen" v-on:changeURL="changeDisplayURL"></UploadBtn>
-                <InputTextBtn></InputTextBtn>
+                <InputTextBtn v-on:changeScreen="changeTextInputScreen"></InputTextBtn>
               </v-layout>
             </v-container>
           </v-flex>
@@ -62,6 +62,9 @@ export default {
   methods: {
     changeImageCheckScreen() {
       this.screenType = "imageCheck";
+    },
+    changeTextInputScreen() {
+      console.log("changed screen");
     },
     changeDisplayURL(img_url) {
       this.displayURL = img_url;
