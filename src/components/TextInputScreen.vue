@@ -6,22 +6,34 @@
       <v-textarea color="teal" rows="20">
          <template v-slot:label>
            <div>
-             投稿を入力してください
+             投稿前のテキストを入力してください
            </div>
          </template>
        </v-textarea>
     </v-flex>
+    <TextCheckBtn v-on:changeScreen="changeTextCheckScreen"></TextCheckBtn>
   </v-layout>
 </v-container>
 
 </template>
 
 <script>
+import TextCheckBtn from "./TextCheckBtn.vue";
+
 export default {
   name: 'inputTextScreen',
+  components: {
+    TextCheckBtn,
+  },
   data: () => ({
 
   }),
+  methods: {
+    changeTextCheckScreen: function() {
+      console.log("change to TextCheckScreen")
+    }
+
+  }
 };
 </script>
 
