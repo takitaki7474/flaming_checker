@@ -11,7 +11,6 @@
          </template>
        </v-textarea>
     </v-flex>
-    {{message}}
     <TextCheckBtn v-on:changeScreen="changeTextCheckScreen"></TextCheckBtn>
   </v-layout>
 </v-container>
@@ -19,6 +18,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import TextCheckBtn from "./TextCheckBtn.vue";
 
 export default {
@@ -32,8 +32,27 @@ export default {
   }),
   methods: {
     changeTextCheckScreen: function() {
-      console.log(this.message);
+      this.postParam(this.message);
       console.log("change to TextCheckScreen");
+    },
+    postParam(textData) {
+      const text = textData
+      const params = new URLSearchParams();
+      params.append('input-text', text);
+
+      axios.post(
+        'http://localhost:5000/post_text',
+        params,
+        {
+          headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+          }
+        }
+      ).then(response => {
+          console.log('送信したテキスト: ' + response.data.text);
+        }).catch(error => {
+          console.log(error);
+        });
     }
 
   }
