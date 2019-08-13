@@ -1,10 +1,10 @@
 <template>
 
-<v-container fluid fill-height justify-center>
+<v-container fluid fill-height justify-center class="textarea-container" style="padding: 50px 0;">
   <v-layout wrap class="align-center justify-center row">
     <v-flex xs12 sm10 md8 lg6 xl4>
       <v-textarea v-model="message" color="teal" rows="20">
-         <template v-slot:label>
+         <template v-slot:label class="text-input-area">
            <div>
              投稿前のテキストを入力してください
            </div>

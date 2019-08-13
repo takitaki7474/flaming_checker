@@ -176,5 +176,8 @@ export default {
   .btn-container {
     height: 200px;
   }
+  .textarea-container {
+    width: 80vmin;
+  }
 }
 </style>
