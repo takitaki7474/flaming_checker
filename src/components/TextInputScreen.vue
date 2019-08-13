@@ -33,7 +33,7 @@ export default {
   methods: {
     changeTextCheckScreen: function() {
       this.postParam(this.message);
-      this.$emit("changeScreen");
+      this.$emit("changeScreen", this.message);
       console.log("change to TextCheckScreen");
     },
     postParam(textData) {

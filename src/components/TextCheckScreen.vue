@@ -17,7 +17,7 @@
                   <v-flex xs12 sm8 class="container-el">
                     <v-container fluid fill-height class="img-container">
                       <v-card raised>
-                        <p v-on:load="drawChart" class="display-text">テキスト</p>
+                        <p v-on:load="drawChart" class="display-text">{{message}}</p>
                       </v-card>
                     </v-container>
                   </v-flex>
@@ -79,6 +79,7 @@ export default {
   name: 'TextCheckScreen',
   props: {
     randomNum: Number,
+    message: String,
   },
   data: () => ({
     flamingBar: "",

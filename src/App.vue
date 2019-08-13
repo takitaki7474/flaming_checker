@@ -23,7 +23,7 @@
               <TextInputScreen v-on:changeScreen="changeTextCheckScreen"></TextInputScreen>
             </div>
             <div v-else-if="screenType === 'textCheck'">
-              <TextCheckScreen v-bind:random-num="randomNum"></TextCheckScreen>
+              <TextCheckScreen v-bind:message="displayMessage" v-bind:random-num="randomNum"></TextCheckScreen>
             </div>
           </v-flex>
 
@@ -68,6 +68,7 @@ export default {
   data: () => ({
     screenType: "home",
     displayURL: "",
+    displayMessage: "",
     randomNum: 70,
   }),
   methods: {
@@ -77,8 +78,9 @@ export default {
     changeTextInputScreen() {
       this.screenType = "inputText";
     },
-    changeTextCheckScreen() {
+    changeTextCheckScreen(message) {
       this.screenType = "textCheck";
+      this.displayMessage = message;
     },
 
     changeDisplayURL(img_url) {
