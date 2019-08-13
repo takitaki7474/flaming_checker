@@ -105,6 +105,10 @@ export default {
 }
 /*600以上*/
 @media screen and (min-width:600px){
+  .display-text {
+    width: 40vmin;
+    height: 40vmin;
+  }
   .display-img{
     width: 40vmin;
     height: 40vmin;
@@ -125,6 +129,10 @@ export default {
 }
 /*600以下*/
 @media screen and (max-width:600px){
+  .display-text {
+    width: 80vmin;
+    height: 60vmin;
+  }
   .display-img {
     width: 60vmin;
     height: 60vmin;

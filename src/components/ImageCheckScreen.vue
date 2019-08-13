@@ -129,8 +129,6 @@ export default {
     });
 
     var ctx2 = document.getElementById("flaming-horizontal-bar");
-    //ctx2.width=window.innerWidth*0.05;
-    //ctx2.height=5;
     this.flamingHorizontalBar = new Chart(ctx2, {
       type: 'horizontalBar',
       data: {
