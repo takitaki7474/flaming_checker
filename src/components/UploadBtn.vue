@@ -1,6 +1,6 @@
 <template>
   <v-flex xs12 class="upload-form">
-    <v-btn v-on:click="inputClick" rounded small color="warning" class="select-btn" style="font-weight: bold;">画像をアップロード</v-btn>
+    <v-btn v-on:click="inputClick" rounded small color="warning" class="select-btn">画像をアップロード</v-btn>
     <input class="form-button" type="file" name="file-submit" id="upload-btn" v-on:change="uploadImageFile"/>
   </v-flex>
 </template>

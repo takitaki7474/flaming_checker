@@ -37,10 +37,10 @@
 
           <v-flex xs12 class="container-el">
             <v-container fluid fill-height class="mark-text-container">
-              <v-layout wrap>
+              <v-layout wrap class="mark-text-layout">
 
 
-                <v-flex xs2 class="container-el">
+                <v-flex xs2 class="mark-flex container-el">
                   <v-container fluid fill-height justify-center align-center class="mark-container">
                     <v-icon :size="fireSize" color="orange darken-2">whatshot</v-icon>
                   </v-container>

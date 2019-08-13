@@ -119,12 +119,15 @@ export default {
   #flaming-horizontal-bar {
     display: none !important;
   }
+  .select-btn {
+    font-weight: bold;
+  }
 }
 /*600以下*/
 @media screen and (max-width:600px){
   .display-img {
-    width: 80vmin;
-    height: 80vmin;
+    width: 60vmin;
+    height: 60vmin;
   }
   .container {
     padding: 0;
@@ -132,6 +135,14 @@ export default {
   .img-container {
     display: flex;
     justify-content: center;
+    padding: 50px 0;
+  }
+  .mark-flex {
+    display: none !important;
+  }
+  .mark-text-layout {
+    display: flex !important;
+    justify-content: center !important;
     padding: 50px 0;
   }
   .bar-container {
@@ -142,6 +153,18 @@ export default {
   }
   #flaming-bar {
     display: none !important;
+  }
+  #flaming-horizontal-bar {
+    border: 1px solid #000;
+  }
+  .comment-card {
+    width: 80vmin;
+    height: 30vmin;
+  }
+  .select-btn {
+    font-size: 14px;
+    width: 80vmin;
+
   }
 }
 </style>
