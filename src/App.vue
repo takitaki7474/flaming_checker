@@ -103,6 +103,7 @@ export default {
   width: 200px;
   font-weight: bold;
 }
+/*600以上*/
 @media screen and (min-width:600px){
   .display-img{
     width: 40vmin;
@@ -115,7 +116,11 @@ export default {
     width: 100%;
     height: 100px;
   }
+  #flaming-horizontal-bar {
+    display: none !important;
+  }
 }
+/*600以下*/
 @media screen and (max-width:600px){
   .display-img {
     width: 80vmin;
@@ -130,6 +135,12 @@ export default {
     padding: 50px 0;
   }
   .bar-container {
+    display: flex;
+    justify-content: center;
+    width: 80vmin !important;
+    height: 10vmin !important;
+  }
+  #flaming-bar {
     display: none !important;
   }
 }

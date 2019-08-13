@@ -26,9 +26,9 @@
                 <v-flex xs12 sm4 class="container-el">
                   <v-container fluid fill-height class="bar-container">
                     <canvas id="flaming-bar" width="400" height="1000"></canvas>
+                    <canvas id="flaming-horizontal-bar" width="1000" height="40"></canvas>
                   </v-container>
                 </v-flex>
-
 
               </v-layout>
             </v-container>
@@ -50,7 +50,7 @@
                 <v-flex xs10 class="container-el">
                   <v-container fluid fill-height justify-center align-center class="text-container">
                     <v-card raised class="comment-card">
-                      <p style="margin:0;">text</p>
+                      <p style="margin:0;" v-model="fireSize">{{fireSize}}</p>
                     </v-card>
                   </v-container>
                 </v-flex>
@@ -82,6 +82,7 @@ export default {
   },
   data: () => ({
     flamingBar: "",
+    flamingHrizontalBar: "",
     fireSize: 0,
   }),
   mounted() {
@@ -126,12 +127,60 @@ export default {
         }
       }
     });
+
+    var ctx2 = document.getElementById("flaming-horizontal-bar");
+    //ctx2.width=window.innerWidth*0.05;
+    //ctx2.height=5;
+    this.flamingHorizontalBar = new Chart(ctx2, {
+      type: 'horizontalBar',
+      data: {
+        labels: ['炎上度'],
+        datasets: [
+          {
+            data: [this.randomNum],
+            backgroundColor: "rgba(219,39,91,0.5)",
+          }
+        ]
+      },
+      options: {
+        animation: {
+          easing: 'easeInOutQuart',
+          duration: 3000,
+          onComplete: function(animation) {
+            me.drawFire();
+          }
+        },
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+             display: false,
+             ticks: {
+               suggestedMax: 100,
+               suggestedMin: 0,
+               stepSize: 10,
+               fontSize: 10,
+             }
+           }],
+           yAxes: [{
+             display: false,
+             ticks: {
+               fontSize: 10
+             }
+           }]
+        }
+      }
+    });
+
   },
   methods: {
     drawChart: function() {
       this.fireSize = 0;
       this.flamingBar.data.datasets[0].data[0] = this.randomNum
       this.flamingBar.update();
+      this.flamingHorizontalBar.data.datasets[0].data[0] = this.randomNum
+      this.flamingHorizontalBar.update();
     },
     drawFire: function() {
       var fire_size;

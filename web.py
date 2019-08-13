@@ -41,11 +41,12 @@ def post():
 @app.route("/post_text", methods=["GET","POST"])
 def post_text():
     if request.method == "POST":
+        dic = {}
         if request.form["input-text"]:
-            dic = {}
             text = request.form["input-text"]
             dic["text"] = text
         else:
+            dic["text"] = " "
             pass
     else:
         pass
