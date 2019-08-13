@@ -1,7 +1,7 @@
 <template>
 
-  <v-container fluid fill-height justify-center style="height: 500px;">
-    <v-layout wrap class="align-center justify-center row">
+  <v-container fluid fill-height justify-center style="height: 60vmin;">
+    <v-layout wrap class="home-text-layout align-center justify-center row">
       <p class="home-text">炎上度をチェックします.<br>画像またはテキストをアップロードしてください.</p>
     </v-layout>
   </v-container>
@@ -19,9 +19,5 @@ export default {
 </script>
 
 <style>
-.home-text {
-  font-size: 20px;
-  color: #808080;
-  text-align: center;
-}
+
 </style>

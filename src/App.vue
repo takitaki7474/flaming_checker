@@ -9,7 +9,7 @@
 
     <v-content>
 
-      <v-container fluid fill-height>
+      <v-container fluid>
         <v-layout wrap>
 
           <v-flex xs12>
@@ -28,7 +28,7 @@
           </v-flex>
 
           <v-flex xs12>
-            <v-container fluid fill-height justify-center class="btn-container">
+            <v-container fluid justify-center class="btn-container">
               <v-layout wrap class="align-center justify-center row" style="height: 100px;">
                 <UploadBtn v-on:changeScreen="changeImageCheckScreen" v-on:changeURL="changeDisplayURL"></UploadBtn>
                 <TextInputBtn v-on:changeScreen="changeTextInputScreen"></TextInputBtn>
@@ -128,6 +128,11 @@ export default {
   .select-btn {
     font-weight: bold;
   }
+  .home-text {
+    font-size: 20px;
+    color: #808080;
+    text-align: center;
+  }
 }
 /*600以下*/
 @media screen and (max-width:600px){
@@ -180,6 +185,14 @@ export default {
   }
   .textarea-container {
     width: 80vmin;
+  }
+  .home-text {
+    font-size: 16px;
+    color: #808080;
+    text-align: center;
+  }
+  .home-text-layout {
+    padding: 0 15px;
   }
 }
 </style>
