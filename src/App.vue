@@ -28,7 +28,7 @@
           </v-flex>
 
           <v-flex xs12>
-            <v-container fluid fill-height justify-center>
+            <v-container fluid fill-height justify-center class="btn-container">
               <v-layout wrap class="align-center justify-center row" style="height: 100px;">
                 <UploadBtn v-on:changeScreen="changeImageCheckScreen" v-on:changeURL="changeDisplayURL"></UploadBtn>
                 <TextInputBtn v-on:changeScreen="changeTextInputScreen"></TextInputBtn>
@@ -164,7 +164,9 @@ export default {
   .select-btn {
     font-size: 14px;
     width: 80vmin;
-
+  }
+  .btn-container {
+    height: 200px;
   }
 }
 </style>
