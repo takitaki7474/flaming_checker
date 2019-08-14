@@ -32,7 +32,6 @@ def infer(img_path):
     img = preprocessing(img)
     y = infer_net.predictor(img)
     y = y.data
-    print(F.softmax(y)[0].data)
     prob_list.append([round(i*100,2) for i in F.softmax(y)[0].data])
 
     return prob_list

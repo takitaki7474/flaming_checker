@@ -31,7 +31,7 @@ def post():
             raw_img_url = os.path.join(UPLOAD_FOLDER, "raw_" + secure_filename(img_file.filename))
             cv2.imwrite(raw_img_url, img)
             prob_list = inference.infer(raw_img_url)
-            print(prob_list)
+            dic["img_ans"] = prob_list[0][1]
             ref_img_url = os.path.join(REF_FOLDER, "raw_" + secure_filename(img_file.filename))
             dic["img_url"] = ref_img_url
         else:

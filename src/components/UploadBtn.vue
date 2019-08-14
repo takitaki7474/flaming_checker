@@ -20,22 +20,24 @@ export default {
     },
     uploadImageFile(e) {
       const files = e.target.files;
-      this.createImage(files[0]);
-      this.postParam(files[0]);
+      this.postParam(files[0], this.createImage)
+      //this.postParam(files[0]);
+      //this.createImage(files[0], ans);
       this.img_name = files[0].name;
       this.$emit('changeScreen');
     },
-    createImage(file) {
+    createImage(file, ans) {
       const reader = new FileReader();
       reader.onload = e => {
         this.uploadedImage = e.target.result;
-        this.$emit('changeURL',this.uploadedImage);
+        console.log(ans)
+        this.$emit('changeURL',this.uploadedImage, ans);
       };
       reader.readAsDataURL(file);
 
 
     },
-    postParam(file) {
+    postParam(file, callback) {
       const params = new FormData();
       params.append("file-submit", file);
 
@@ -48,7 +50,7 @@ export default {
           },
         }
       ).then(result => {
-        console.log(result.data.img_url);
+        callback(file, result.data.img_ans);
       }).catch(error => {
         console.log("uploading failure");
       });

@@ -83,11 +83,13 @@ export default {
       this.displayMessage = message;
     },
 
-    changeDisplayURL(img_url) {
+    changeDisplayURL(img_url, img_ans) {
       this.displayURL = img_url;
       var min = 0 ;
       var max = 100 ;
-      this.randomNum = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+      //this.randomNum = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+      console.log("bbbbbbbbbbb",img_ans)
+      this.randomNum = img_ans
     }
   }
 };
