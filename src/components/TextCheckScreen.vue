@@ -16,8 +16,14 @@
 
                   <v-flex xs12 sm8 class="container-el">
                     <v-container fluid fill-height class="img-container">
-                      <v-card>
-                        <p v-on:load="drawChart" class="display-text">{{message}}</p>
+                      <v-card color="orange lighten-5" style="min-width:100%; min-height: 80%; display: flex; align-items: center;">
+                        <v-row justify="center" style="padding: 20px;">
+                          <!--<v-card-text class="blacktext font-weight-bold">
+                            <div class="headline mb-2" v-on:load="drawChart">{{message}}</div>
+                          </v-card-text>
+                        -->
+                          <div class="headline mb-2" v-on:load="drawChart">{{message}}</div>
+                        </v-row>
                       </v-card>
                     </v-container>
                   </v-flex>
@@ -53,12 +59,10 @@
                       <v-card class="comment-card">
                         <v-card-text>
                           <v-chip-group column>
-                            <v-layout justify-center>
-                              <v-chip label color="grey lighten-4" v-for="item in comment" :key="index" style="height: 50px;">
-                                <v-chip color="pink lighten-4">{{item[0]}}</v-chip>
-                                <v-chip color="blue lighten-4">{{item[1]}}</v-chip>
-                              </v-chip>
-                            </v-layout>
+                            <v-chip label color="grey lighten-4" v-for="item in comment" :key="index" style="height: 50px;">
+                              <v-chip color="pink lighten-4" style="margin: 0 5px;">{{item[0]}}</v-chip>
+                              <v-chip color="blue lighten-4" style="margin: 0 5px;">{{item[1]}}</v-chip>
+                            </v-chip>
                           </v-chip-group>
                         </v-card-text>
                       </v-card>

@@ -179,8 +179,8 @@ export default {
     border: 1px solid #000;
   }
   .comment-card {
-    width: 80vmin;
-    height: 30vmin;
+    min-width: 80vmin;
+    min-height: 30vmin;
   }
   .select-btn {
     font-size: 14px;
