@@ -5,7 +5,8 @@ import os
 import io
 import numpy as np
 import inference
-import word_recommend
+#import word_recommend
+import word_recommend_tuple
 
 app = Flask(__name__, static_folder="./src", template_folder="./templates")
 
@@ -50,8 +51,8 @@ def post_text():
         dic = {}
         if request.form["input-text"]:
             text = request.form["input-text"]
-            
-            word_tuple = word_recommend.recommend_words(text)
+
+            word_tuple = word_recommend_tuple.recommend_words(text)
             dic["text"] = word_tuple
         else:
             dic["text"] = " "
