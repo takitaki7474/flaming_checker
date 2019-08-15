@@ -16,7 +16,7 @@
 
                   <v-flex xs12 sm8 class="container-el">
                     <v-container fluid fill-height class="img-container">
-                      <v-card raised>
+                      <v-card>
                         <p v-on:load="drawChart" class="display-text">{{message}}</p>
                       </v-card>
                     </v-container>
@@ -50,7 +50,11 @@
 
                   <v-flex xs10 class="container-el">
                     <v-container fluid fill-height justify-center align-center class="text-container">
-                      <v-card raised class="comment-card">
+                      <v-card class="comment-card">
+                        <v-chip label>
+                          <v-chip color="warning">Default</v-chip>
+                          <v-chip color="warning">aaaaaaaaaaaaaa</v-chip>
+                        </v-chip>
                         <p style="margin:0;">text</p>
                       </v-card>
                     </v-container>

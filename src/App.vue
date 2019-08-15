@@ -125,7 +125,7 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    min-height: 100px;
   }
   #flaming-horizontal-bar {
     display: none !important;
