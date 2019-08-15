@@ -32,11 +32,15 @@ export default {
   }),
   methods: {
     changeTextCheckScreen: function() {
-      this.postParam(this.message);
-      this.$emit("changeScreen", this.message);
+      //this.postParam(this.message);
+      //this.$emit("changeScreen", this.message);
+      this.postParam(this.message, this.TransfarText);
       console.log("change to TextCheckScreen");
     },
-    postParam(textData) {
+    TransfarText(text, word) {
+      this.$emit("changeScreen", text, word);
+    },
+    postParam(textData, callback) {
       const text = textData
       const params = new URLSearchParams();
       params.append('input-text', text);
@@ -50,7 +54,8 @@ export default {
           }
         }
       ).then(response => {
-          console.log('送信したテキスト: ' + response.data.text);
+        callback(text, response.data.text);
+        console.log('送信したテキスト: ' + response.data.text);
         }).catch(error => {
           console.log(error);
         });

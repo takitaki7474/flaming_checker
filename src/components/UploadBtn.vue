@@ -34,8 +34,6 @@ export default {
         this.$emit('changeURL',this.uploadedImage, ans);
       };
       reader.readAsDataURL(file);
-
-
     },
     postParam(file, callback) {
       const params = new FormData();

@@ -69,6 +69,7 @@ export default {
     screenType: "home",
     displayURL: "",
     displayMessage: "",
+    displayComment: "",
     randomNum: 70,
   }),
   methods: {
@@ -78,9 +79,11 @@ export default {
     changeTextInputScreen() {
       this.screenType = "inputText";
     },
-    changeTextCheckScreen(message) {
+    changeTextCheckScreen(message, comment) {
       this.screenType = "textCheck";
       this.displayMessage = message;
+      this.displayComment = comment;
+      console.log("fffff",this.displayComment);
     },
 
     changeDisplayURL(img_url, img_ans) {
