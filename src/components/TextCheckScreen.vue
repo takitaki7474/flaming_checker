@@ -53,9 +53,9 @@
                       <v-card class="comment-card">
                         <v-card-text>
                           <v-chip-group column>
-                            <v-chip label v-for="n in 3">
-                              <v-chip color="warning">Default</v-chip>
-                              <v-chip color="warning">aaaaaaaaaaaaaa</v-chip>
+                            <v-chip label color="grey lighten-4" v-for="n in 3" style="height: 50px;">
+                              <v-chip color="pink lighten-4">Default</v-chip>
+                              <v-chip color="blue lighten-4">aaaaaaaaaaaaaa</v-chip>
                             </v-chip>
                           </v-chip-group>
                         </v-card-text>
