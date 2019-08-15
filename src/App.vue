@@ -23,7 +23,7 @@
               <TextInputScreen v-on:changeScreen="changeTextCheckScreen"></TextInputScreen>
             </div>
             <div v-else-if="screenType === 'textCheck'">
-              <TextCheckScreen v-bind:message="displayMessage" v-bind:random-num="randomNum"></TextCheckScreen>
+              <TextCheckScreen v-bind:message="displayMessage" v-bind:random-num="randomNum" v-bind:comment="displayComment"></TextCheckScreen>
             </div>
           </v-flex>
 
@@ -84,6 +84,7 @@ export default {
       this.displayMessage = message;
       this.displayComment = comment;
       console.log("fffff",this.displayComment);
+      console.log(typeof this.displayComment)
     },
 
     changeDisplayURL(img_url, img_ans) {

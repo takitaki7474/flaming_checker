@@ -53,10 +53,12 @@
                       <v-card class="comment-card">
                         <v-card-text>
                           <v-chip-group column>
-                            <v-chip label color="grey lighten-4" v-for="n in 3" style="height: 50px;">
-                              <v-chip color="pink lighten-4">Default</v-chip>
-                              <v-chip color="blue lighten-4">aaaaaaaaaaaaaa</v-chip>
-                            </v-chip>
+                            <v-layout justify-center>
+                              <v-chip label color="grey lighten-4" v-for="item in comment" :key="index" style="height: 50px;">
+                                <v-chip color="pink lighten-4">{{item[0]}}</v-chip>
+                                <v-chip color="blue lighten-4">{{item[1]}}</v-chip>
+                              </v-chip>
+                            </v-layout>
                           </v-chip-group>
                         </v-card-text>
                       </v-card>
@@ -87,6 +89,7 @@ export default {
   props: {
     randomNum: Number,
     message: String,
+    comment: Object,
   },
   data: () => ({
     flamingBar: "",
