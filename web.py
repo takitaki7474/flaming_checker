@@ -5,6 +5,7 @@ import os
 import io
 import numpy as np
 import inference
+import word_recommend
 
 app = Flask(__name__, static_folder="./src", template_folder="./templates")
 
@@ -30,8 +31,10 @@ def post():
 
             raw_img_url = os.path.join(UPLOAD_FOLDER, "raw_" + secure_filename(img_file.filename))
             cv2.imwrite(raw_img_url, img)
-            prob_list = inference.infer(raw_img_url)
-            dic["img_ans"] = prob_list[0][1]
+
+            prob = inference.infer(raw_img_url)
+            dic["img_ans"] = prob
+
             ref_img_url = os.path.join(REF_FOLDER, "raw_" + secure_filename(img_file.filename))
             dic["img_url"] = ref_img_url
         else:
@@ -47,7 +50,9 @@ def post_text():
         dic = {}
         if request.form["input-text"]:
             text = request.form["input-text"]
-            dic["text"] = text
+            
+            word_tuple = word_recommend.recommend_words(text)
+            dic["text"] = word_tuple
         else:
             dic["text"] = " "
             pass

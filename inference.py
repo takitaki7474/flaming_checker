@@ -34,4 +34,4 @@ def infer(img_path):
     y = y.data
     prob_list.append([round(i*100,2) for i in F.softmax(y)[0].data])
 
-    return prob_list
+    return prob_list[0][1]
