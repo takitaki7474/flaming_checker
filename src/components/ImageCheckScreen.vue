@@ -50,7 +50,7 @@
                 <v-flex xs10 class="container-el">
                   <v-container fluid fill-height justify-center align-center class="text-container">
                     <v-card raised class="comment-card">
-                      <v-card-title v-if="displayComment" v-model="fireSize">炎上度は{{fireSize}}%です!</v-card-title>
+                      <v-card-title v-if="displayComment" v-model="fireSize" v-bind="comment" style="text-align: center;">炎上度は{{fireSize}}%です!<br>{{comment}}</v-card-title>
                     </v-card>
                   </v-container>
                 </v-flex>
@@ -84,7 +84,8 @@ export default {
     flamingBar: "",
     flamingHrizontalBar: "",
     fireSize: 0,
-    displayComment: false
+    displayComment: false,
+    comment: ""
   }),
   mounted() {
     var me = this;
@@ -193,7 +194,14 @@ export default {
       callback();
     },
     drawComment: function() {
-      console.log("draw comment")
+      if (this.randomNum > 66.0) {
+        this.comment = "ああ";
+      } else if (this.randomNum > 33.0) {
+        this.comment = "いい";
+      } else {
+        this.comment = "うう";
+      }
+
       this.displayComment = true;
     }
   }
