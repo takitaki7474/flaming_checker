@@ -13,9 +13,9 @@ import cnn_mynet
 
 gpu_id = -1
 
-infer_net = cnn_mynet.MyNet_6(2)
+infer_net = cnn_mynet.MyNet_haya(2)
 infer_net = L.Classifier(infer_net)
-serializers.load_npz("./learned_model/" + "hayakawa_special.model", infer_net)
+serializers.load_npz("./learned_model/" + "haya4.model", infer_net)
 
 def preprocessing(img):
     img = cv2.resize(img,(28,28))

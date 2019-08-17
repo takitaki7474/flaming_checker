@@ -50,7 +50,7 @@
                 <v-flex xs10 class="container-el">
                   <v-container fluid fill-height justify-center align-center class="text-container">
                     <v-card raised class="comment-card">
-                      <p style="margin:0;" v-model="fireSize">{{fireSize}}</p>
+                      <v-card-title v-if="displayComment" v-model="fireSize">炎上度は{{fireSize}}%です!</v-card-title>
                     </v-card>
                   </v-container>
                 </v-flex>
@@ -84,6 +84,7 @@ export default {
     flamingBar: "",
     flamingHrizontalBar: "",
     fireSize: 0,
+    displayComment: false
   }),
   mounted() {
     var me = this;
@@ -104,7 +105,7 @@ export default {
           easing: 'easeInOutQuart',
           duration: 3000,
           onComplete: function(animation) {
-            me.drawFire();
+            me.drawFire(me.drawComment);
           }
         },
         legend: {
@@ -145,7 +146,7 @@ export default {
           easing: 'easeInOutQuart',
           duration: 3000,
           onComplete: function(animation) {
-            me.drawFire();
+            me.drawFire(me.drawComment);
           }
         },
         legend: {
@@ -174,13 +175,14 @@ export default {
   },
   methods: {
     drawChart: function() {
+      this.displayComment = false;
       this.fireSize = 0;
       this.flamingBar.data.datasets[0].data[0] = this.randomNum
       this.flamingBar.update();
       this.flamingHorizontalBar.data.datasets[0].data[0] = this.randomNum
       this.flamingHorizontalBar.update();
     },
-    drawFire: function() {
+    drawFire: function(callback) {
       var fire_size;
       if (this.randomNum < 40) {
         fire_size = 40;
@@ -188,6 +190,11 @@ export default {
         fire_size = this.randomNum;
       }
       this.fireSize = fire_size;
+      callback();
+    },
+    drawComment: function() {
+      console.log("draw comment")
+      this.displayComment = true;
     }
   }
 };
