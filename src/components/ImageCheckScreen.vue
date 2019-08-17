@@ -194,12 +194,32 @@ export default {
       callback();
     },
     drawComment: function() {
+      const commentList = [
+        "ああ",
+        "いい",
+        "うう",
+        "ええ",
+        "おお",
+        "かか",
+        "きき",
+        "くく",
+        "けけ"
+      ]
       if (this.randomNum > 66.0) {
-        this.comment = "ああ";
+        var min = 0 ;
+        var max = 2 ;
+        var commentValue = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+        this.comment = commentList[commentValue];
       } else if (this.randomNum > 33.0) {
-        this.comment = "いい";
+        var min = 3 ;
+        var max = 5 ;
+        var commentValue = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+        this.comment = commentList[commentValue];
       } else {
-        this.comment = "うう";
+        var min = 6 ;
+        var max = 8 ;
+        var commentValue = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+        this.comment = commentList[commentValue];
       }
 
       this.displayComment = true;
