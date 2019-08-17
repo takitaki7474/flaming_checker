@@ -59,9 +59,12 @@
                       <v-card class="comment-card">
                         <v-card-text>
                           <v-chip-group column>
-                            <v-chip label color="grey lighten-4" v-for="item in comment" :key="index" style="height: 50px;">
+                            <v-chip v-if="comment.length > 0" label color="grey lighten-4" v-for="item in comment" :key="index" style="height: 50px;">
                               <v-chip color="pink lighten-4" style="margin: 0 5px;">{{item[0]}}</v-chip>
                               <v-chip color="blue lighten-4" style="margin: 0 5px;">{{item[1]}}</v-chip>
+                            </v-chip>
+                            <v-chip column v-if="comment.length==0">
+                              炎上しそうな単語は存在しません
                             </v-chip>
                           </v-chip-group>
                         </v-card-text>

@@ -160,6 +160,7 @@ del polar_dict[""]
 del polar_dict["だ"]
 polar_dict["ある"] = 1
 polar_dict["ない"] = -1
+polar_dict["www"] = -1
 ### End of tune-up.
 
 ## 辞書内に定義されている単語のリスト
@@ -187,7 +188,7 @@ def recommend_words(text):
         positive_words_list = polar_positive_store(similar_words_list, polar_dict)
 
         if len(positive_words_list) == 0:
-            positive_words_list.append("該当単語無し")
+            positive_words_list.append("※使用注意")
 
         posi_list.append(positive_words_list[0])
 
