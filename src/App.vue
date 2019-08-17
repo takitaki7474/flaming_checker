@@ -3,7 +3,7 @@
 
     <v-app-bar app color="red accent-3" dark>
       <v-toolbar-title class="headline text-uppercase">
-        <span class="font-weight-bold font-italic">炎上チェッカー</span>
+        <span class="font-weight-bold font-italic">火の用心</span>
       </v-toolbar-title>
     </v-app-bar>
 
