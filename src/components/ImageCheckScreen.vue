@@ -50,7 +50,7 @@
                 <v-flex xs10 class="container-el">
                   <v-container fluid fill-height justify-center align-center class="text-container">
                     <v-card raised class="comment-card">
-                      <p v-if="displayComment" v-model="fireSize" v-bind="comment" style="text-align: center; margin: 0; font-size: 20px;">炎上度は<span style="color: red;">{{fireSize}}%</span>です!<br>{{comment}}</p>
+                      <p v-if="displayComment" v-model="randomNum" v-bind="comment" style="text-align: center; margin: 0; font-size: 20px;">炎上度は<span style="color: red;">{{randomNum}}%</span>です!<br>{{comment}}</p>
                     </v-card>
                   </v-container>
                 </v-flex>

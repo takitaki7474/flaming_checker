@@ -58,6 +58,7 @@
                     <v-container fluid fill-height justify-center align-center class="text-container">
                       <v-card class="comment-card">
                         <v-card-text>
+                          <p v-model="randomNum" style="text-align: center; margin: 0; font-size: 20px;">炎上度は<span style="color: red;">{{randomNum}}%</span>です!</p><br>
                           <v-chip-group column>
                             <v-chip v-if="comment.length > 0" label color="grey lighten-4" v-for="item in comment" :key="index" style="height: 50px;">
                               <v-chip color="pink lighten-4" style="margin: 0 5px;">{{item[0]}}</v-chip>
