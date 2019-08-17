@@ -57,7 +57,7 @@
                   <v-flex xs10 class="container-el">
                     <v-container fluid fill-height justify-center align-center class="text-container">
                       <v-card class="comment-card">
-                        <v-card-text>
+                        <v-card-text v-if="displayComment">
                           <p v-model="randomNum" style="text-align: center; margin: 0; font-size: 20px;">炎上度は<span style="color: red;">{{randomNum}}%</span>です!</p><br>
                           <v-chip-group column>
                             <v-chip v-if="comment.length > 0" label color="grey lighten-4" v-for="item in comment" :key="index" style="height: 50px;">
@@ -103,6 +103,7 @@ export default {
     flamingBar: "",
     flamingHrizontalBar: "",
     fireSize: 0,
+    displayComment: false,
   }),
   mounted() {
     var me = this;
@@ -123,7 +124,7 @@ export default {
           easing: 'easeInOutQuart',
           duration: 3000,
           onComplete: function(animation) {
-            me.drawFire();
+            me.drawFire(me.drawComment);
           }
         },
         legend: {
@@ -164,7 +165,7 @@ export default {
           easing: 'easeInOutQuart',
           duration: 3000,
           onComplete: function(animation) {
-            me.drawFire();
+            me.drawFire(me.drawComment);
           }
         },
         legend: {
@@ -192,13 +193,14 @@ export default {
   },
   methods: {
     drawChart: function() {
+      this.displayComment = false;
       this.fireSize = 0;
       this.flamingBar.data.datasets[0].data[0] = this.randomNum
       this.flamingBar.update();
       this.flamingHorizontalBar.data.datasets[0].data[0] = this.randomNum
       this.flamingHorizontalBar.update();
     },
-    drawFire: function() {
+    drawFire: function(callback) {
       var fire_size;
       if (this.randomNum < 40) {
         fire_size = 40;
@@ -206,6 +208,10 @@ export default {
         fire_size = this.randomNum;
       }
       this.fireSize = fire_size;
+      callback();
+    },
+    drawComment: function() {
+      this.displayComment = true;
     }
   }
 };
