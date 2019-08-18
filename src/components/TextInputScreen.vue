@@ -37,8 +37,8 @@ export default {
       this.postParam(this.message, this.TransfarText);
       console.log("change to TextCheckScreen");
     },
-    TransfarText(text, word) {
-      this.$emit("changeScreen", text, word);
+    TransfarText(text, word, ans) {
+      this.$emit("changeScreen", text, word, ans);
     },
     postParam(textData, callback) {
       const text = textData
@@ -54,7 +54,7 @@ export default {
           }
         }
       ).then(response => {
-        callback(text, response.data.text);
+        callback(text, response.data.text, response.data.text_ans);
         console.log('送信したテキスト: ' + response.data.text);
         }).catch(error => {
           console.log(error);

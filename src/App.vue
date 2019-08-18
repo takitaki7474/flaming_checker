@@ -79,10 +79,11 @@ export default {
     changeTextInputScreen() {
       this.screenType = "inputText";
     },
-    changeTextCheckScreen(message, comment) {
+    changeTextCheckScreen(message, comment, text_ans) {
       this.screenType = "textCheck";
       this.displayMessage = message;
       this.displayComment = comment;
+      this.randomNum = text_ans;
       console.log("fffff",this.displayComment);
       console.log(typeof this.displayComment)
     },
