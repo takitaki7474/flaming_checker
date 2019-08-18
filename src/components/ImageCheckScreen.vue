@@ -104,7 +104,7 @@ export default {
       options: {
         animation: {
           easing: 'easeInOutQuart',
-          duration: 3000,
+          duration: 2000,
           onComplete: function(animation) {
             me.drawFire(me.drawComment);
           }
@@ -145,7 +145,7 @@ export default {
       options: {
         animation: {
           easing: 'easeInOutQuart',
-          duration: 3000,
+          duration: 2000,
           onComplete: function(animation) {
             me.drawFire(me.drawComment);
           }
@@ -195,15 +195,15 @@ export default {
     },
     drawComment: function() {
       const commentList = [
-        "ああ",
-        "いい",
-        "うう",
-        "ええ",
-        "おお",
-        "かか",
-        "きき",
-        "くく",
-        "けけ"
+        "投稿者は多大なダメージを受けます。投稿を控えましょう。",
+        "間違いなく燃え上がります。消化の準備を始めてください。",
+        "投稿すれば、袋叩きに遭います。落ち着いて考えましょう。",
+        "炎上の危険があります! お茶でも飲んで、一度考えましょう。",
+        "火の粉を被るかもしれません! モザイク加工を施しましょう。",
+        "危険な香りがします! 投稿には気をつけてください!",
+        "問題なく投稿できます! 自信を持って伝えましょう!",
+        "火の元はありません! 安心して投稿できます。",
+        "あなたは炎上回避マスターです! どんどん投稿しましょう!"
       ]
       if (this.randomNum > 66.0) {
         var min = 0 ;

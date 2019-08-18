@@ -122,7 +122,7 @@ export default {
       options: {
         animation: {
           easing: 'easeInOutQuart',
-          duration: 3000,
+          duration: 2000,
           onComplete: function(animation) {
             me.drawFire(me.drawComment);
           }
@@ -163,7 +163,7 @@ export default {
       options: {
         animation: {
           easing: 'easeInOutQuart',
-          duration: 3000,
+          duration: 2000,
           onComplete: function(animation) {
             me.drawFire(me.drawComment);
           }
