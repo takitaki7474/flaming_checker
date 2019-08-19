@@ -167,6 +167,7 @@ polar_dict["www"] = -1
 polar_words_list = [d for d in polar_dict]
 
 ## パラメータ設定
+"""
 size = 200
 min_count = 20
 window = 10
@@ -174,17 +175,17 @@ sg = 1
 dirname = "size{}-min_count{}-window{}-sg{}".format(size, min_count, window, sg)
 dic_path = "read_file/dictionary.pickle"
 model_path = "learned_model/"+dirname+"/wikipedia.model"
+"""
 
-
-def recommend_words(text):
+def recommend_words(text, wiki2vec):
     posi_list = []
     ans_list = []
     morphemes_dict_list = create_mecab_list(text)
     negative_words_list = polar_negative_score(morphemes_dict_list, polar_dict)
-    wiki2vec = Wiki2Vec(dic_path, model_path)
+    #wiki2vec = Wiki2Vec(dic_path, model_path)
 
     for negative_word in negative_words_list:
-        similar_words_list, similarity_list = wiki2vec.get_similar_tokens(negative_word, 30)
+        similar_words_list, similarity_list = wiki2vec.get_similar_tokens(negative_word, 50)
         positive_words_list = polar_positive_store(similar_words_list, polar_dict)
 
         if len(positive_words_list) == 0:

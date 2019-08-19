@@ -16,6 +16,15 @@ app.config["DEBUG"] = True
 UPLOAD_FOLDER = './src/save_images'
 REF_FOLDER = '/src/save_images'
 
+size = 200
+min_count = 20
+window = 10
+sg = 1
+dirname = "size{}-min_count{}-window{}-sg{}".format(size, min_count, window, sg)
+dic_path = "read_file/dictionary.pickle"
+model_path = "learned_model/"+dirname+"/wikipedia.model"
+wiki2vec = word_recommend_tuple.Wiki2Vec(dic_path, model_path)
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -54,7 +63,7 @@ def post_text():
             text = request.form["input-text"]
 
             try:
-                word_tuple = word_recommend_tuple.recommend_words(text)
+                word_tuple = word_recommend_tuple.recommend_words(text, wiki2vec)
                 dic["text"] = word_tuple
             except:
                 dic["text"] = []
