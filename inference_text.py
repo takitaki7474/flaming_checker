@@ -15,11 +15,9 @@ import pickle
 import argparse
 
 
-
 infer_net = my_rnn.LSTM_SentenceClassifier(13443,200,100,2)
 infer_net = L.Classifier(infer_net)
 serializers.load_npz("./learned_model/lstm1.model", infer_net)
-
 
 
 def sentence2words(sentence):
@@ -34,30 +32,22 @@ def sentence2words(sentence):
     return sentence_words[:-1]
 
 
-
 def preprocessing(dx):
 
     m = MeCab.Tagger("-Owakati")
-        #print(dx)
+
     dx = re.sub(re.compile(r"[!-、。「」\/:-@[-`{-~・]"), "", dx) # 記号を削除
     dx = dx.replace(" ", "") # 改行削除
     dx = dx.replace("\n","")
-    #dx_result.append(m.parse(dx))
     dx = m.parse(dx)
-        #print(dx_result)
     dx = dx.split(" ")
 
-
-    #print(dx_result)
     f=open('./learned_model/word-jisho.pickle','rb')#辞書の読み込み
     words=pickle.load(f)
 
     for word in dx:
         if word not in words:
             words[word] = words["は"]
-
-
-
 
     data_x_vec = []
     sentence_words = sentence2words(dx)
@@ -69,23 +59,16 @@ def preprocessing(dx):
 
     # 文章の長さを揃えるため、-1パディングする（系列を覚えておきやすくするため、前パディングする）
     max_sentence_size = 53
-    '''for sentence_vec in data_x_vec:
-        if max_sentence_size < len(sentence_vec):
-            max_sentence_size = len(sentence_vec)'''
     for sentence_ids in data_x_vec:
         while len(sentence_ids) < max_sentence_size:
             sentence_ids.insert(0, -1) # 先頭に追加
 
     # データセット
     data_x_vec = np.array(data_x_vec, dtype="int32")
-    #for x, t in zip(data_x_vec, data_t):
-        #dataset.append((x, t))
-    #print(data_x_vec)
-
 
     return data_x_vec
 
-#def infer(text):
+
 def infer(text):
     pre_data = preprocessing(text)
     result = F.softmax(infer_net.predictor(pre_data), axis=1)
