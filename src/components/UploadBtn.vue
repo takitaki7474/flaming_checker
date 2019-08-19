@@ -20,9 +20,7 @@ export default {
     },
     uploadImageFile(e) {
       const files = e.target.files;
-      this.postParam(files[0], this.createImage)
-      //this.postParam(files[0]);
-      //this.createImage(files[0], ans);
+      this.postParam(files[0], this.createImage);
       this.img_name = files[0].name;
       this.$emit('changeScreen');
     },
@@ -30,7 +28,6 @@ export default {
       const reader = new FileReader();
       reader.onload = e => {
         this.uploadedImage = e.target.result;
-        console.log(ans)
         this.$emit('changeURL',this.uploadedImage, ans);
       };
       reader.readAsDataURL(file);

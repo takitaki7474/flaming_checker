@@ -84,16 +84,12 @@ export default {
       this.displayMessage = message;
       this.displayComment = comment;
       this.flamingValue = text_ans;
-      console.log("fffff",this.displayComment);
-      console.log(typeof this.displayComment)
     },
 
     changeDisplayURL(img_url, img_ans) {
       this.displayURL = img_url;
       var min = 0 ;
       var max = 100 ;
-      //this.flamingValue = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-      console.log("bbbbbbbbbbb",img_ans)
       this.flamingValue = img_ans
     }
   }

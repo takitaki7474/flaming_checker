@@ -18,10 +18,6 @@
                     <v-container fluid fill-height class="img-container">
                       <v-card color="orange lighten-5" style="min-width:100%; min-height: 80%; display: flex; align-items: center;">
                         <v-row justify="center" style="padding: 20px;">
-                          <!--<v-card-text class="blacktext font-weight-bold">
-                            <div class="headline mb-2" v-on:load="drawChart">{{message}}</div>
-                          </v-card-text>
-                        -->
                           <div class="headline mb-2" v-on:load="drawChart">{{message}}</div>
                         </v-row>
                       </v-card>
