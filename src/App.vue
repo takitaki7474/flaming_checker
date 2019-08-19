@@ -17,13 +17,13 @@
               <HomeScreen></HomeScreen>
             </div>
             <div v-else-if="screenType === 'imageCheck'">
-              <ImageCheckScreen v-bind:img-url="displayURL" v-bind:random-num="randomNum"></ImageCheckScreen>
+              <ImageCheckScreen v-bind:img-url="displayURL" v-bind:flaming-value="flamingValue"></ImageCheckScreen>
             </div>
             <div v-else-if="screenType === 'inputText'">
               <TextInputScreen v-on:changeScreen="changeTextCheckScreen"></TextInputScreen>
             </div>
             <div v-else-if="screenType === 'textCheck'">
-              <TextCheckScreen v-bind:message="displayMessage" v-bind:random-num="randomNum" v-bind:comment="displayComment"></TextCheckScreen>
+              <TextCheckScreen v-bind:message="displayMessage" v-bind:flaming-value="flamingValue" v-bind:comment="displayComment"></TextCheckScreen>
             </div>
           </v-flex>
 
@@ -70,7 +70,7 @@ export default {
     displayURL: "",
     displayMessage: "",
     displayComment: "",
-    randomNum: 70,
+    flamingValue: 70,
   }),
   methods: {
     changeImageCheckScreen() {
@@ -83,7 +83,7 @@ export default {
       this.screenType = "textCheck";
       this.displayMessage = message;
       this.displayComment = comment;
-      this.randomNum = text_ans;
+      this.flamingValue = text_ans;
       console.log("fffff",this.displayComment);
       console.log(typeof this.displayComment)
     },
@@ -92,9 +92,9 @@ export default {
       this.displayURL = img_url;
       var min = 0 ;
       var max = 100 ;
-      //this.randomNum = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+      //this.flamingValue = Math.floor( Math.random() * (max + 1 - min) ) + min ;
       console.log("bbbbbbbbbbb",img_ans)
-      this.randomNum = img_ans
+      this.flamingValue = img_ans
     }
   }
 };

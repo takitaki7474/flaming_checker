@@ -50,7 +50,7 @@
                 <v-flex xs10 class="container-el">
                   <v-container fluid fill-height justify-center align-center class="text-container">
                     <v-card raised class="comment-card">
-                      <p v-if="displayComment" v-model="randomNum" v-bind="comment" style="text-align: center; margin: 0; font-size: 20px;">炎上度は<span style="color: red;">{{randomNum}}%</span>です!<br>{{comment}}</p>
+                      <p v-if="displayComment" v-model="flamingValue" v-bind="comment" style="text-align: center; margin: 0; font-size: 20px;">炎上度は<span style="color: red;">{{flamingValue}}%</span>です!<br>{{comment}}</p>
                     </v-card>
                   </v-container>
                 </v-flex>
@@ -78,7 +78,7 @@ export default {
   name: 'ImageCheckScreen',
   props: {
     imgUrl: String,
-    randomNum: Number,
+    flamingValue: Number,
   },
   data: () => ({
     flamingBar: "",
@@ -96,7 +96,7 @@ export default {
         labels: ['炎上度'],
         datasets: [
           {
-            data: [this.randomNum],
+            data: [this.flamingValue],
             backgroundColor: "rgba(219,39,91,0.5)",
           }
         ]
@@ -137,7 +137,7 @@ export default {
         labels: ['炎上度'],
         datasets: [
           {
-            data: [this.randomNum],
+            data: [this.flamingValue],
             backgroundColor: "rgba(219,39,91,0.5)",
           }
         ]
@@ -178,17 +178,17 @@ export default {
     drawChart: function() {
       this.displayComment = false;
       this.fireSize = 0;
-      this.flamingBar.data.datasets[0].data[0] = this.randomNum
+      this.flamingBar.data.datasets[0].data[0] = this.flamingValue
       this.flamingBar.update();
-      this.flamingHorizontalBar.data.datasets[0].data[0] = this.randomNum
+      this.flamingHorizontalBar.data.datasets[0].data[0] = this.flamingValue
       this.flamingHorizontalBar.update();
     },
     drawFire: function(callback) {
       var fire_size;
-      if (this.randomNum < 40) {
+      if (this.flamingValue < 40) {
         fire_size = 40;
       } else {
-        fire_size = this.randomNum;
+        fire_size = this.flamingValue;
       }
       this.fireSize = fire_size;
       callback();
@@ -205,12 +205,12 @@ export default {
         "火の元はありません! 安心して投稿できます。",
         "あなたは炎上回避マスターです! どんどん投稿しましょう!"
       ]
-      if (this.randomNum > 66.0) {
+      if (this.flamingValue > 66.0) {
         var min = 0 ;
         var max = 2 ;
         var commentValue = Math.floor( Math.random() * (max + 1 - min) ) + min ;
         this.comment = commentList[commentValue];
-      } else if (this.randomNum > 33.0) {
+      } else if (this.flamingValue > 33.0) {
         var min = 3 ;
         var max = 5 ;
         var commentValue = Math.floor( Math.random() * (max + 1 - min) ) + min ;

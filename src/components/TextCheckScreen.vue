@@ -58,7 +58,7 @@
                     <v-container fluid fill-height justify-center align-center class="text-container">
                       <v-card class="comment-card">
                         <v-card-text v-if="displayComment">
-                          <p v-model="randomNum" style="text-align: center; margin: 0; font-size: 20px;">炎上度は<span style="color: red;">{{randomNum}}%</span>です!</p><br>
+                          <p v-model="flamingValue" style="text-align: center; margin: 0; font-size: 20px;">炎上度は<span style="color: red;">{{flamingValue}}%</span>です!</p><br>
                           <v-chip-group column>
                             <v-chip v-if="comment.length > 0" label color="grey lighten-4" v-for="item in comment" :key="index" style="height: 50px;">
                               <v-chip color="pink lighten-4" style="margin: 0 5px;">{{item[0]}}</v-chip>
@@ -95,7 +95,7 @@ import Chart from 'chart.js';
 export default {
   name: 'TextCheckScreen',
   props: {
-    randomNum: Number,
+    flamingValue: Number,
     message: String,
     comment: Object,
   },
@@ -114,7 +114,7 @@ export default {
         labels: ['炎上度'],
         datasets: [
           {
-            data: [this.randomNum],
+            data: [this.flamingValue],
             backgroundColor: "rgba(219,39,91,0.5)",
           }
         ]
@@ -155,7 +155,7 @@ export default {
         labels: ['炎上度'],
         datasets: [
           {
-            data: [this.randomNum],
+            data: [this.flamingValue],
             backgroundColor: "rgba(219,39,91,0.5)",
           }
         ]
@@ -195,17 +195,17 @@ export default {
     drawChart: function() {
       this.displayComment = false;
       this.fireSize = 0;
-      this.flamingBar.data.datasets[0].data[0] = this.randomNum
+      this.flamingBar.data.datasets[0].data[0] = this.flamingValue
       this.flamingBar.update();
-      this.flamingHorizontalBar.data.datasets[0].data[0] = this.randomNum
+      this.flamingHorizontalBar.data.datasets[0].data[0] = this.flamingValue
       this.flamingHorizontalBar.update();
     },
     drawFire: function(callback) {
       var fire_size;
-      if (this.randomNum < 40) {
+      if (this.flamingValue < 40) {
         fire_size = 40;
       } else {
-        fire_size = this.randomNum;
+        fire_size = this.flamingValue;
       }
       this.fireSize = fire_size;
       callback();
