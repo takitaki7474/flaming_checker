@@ -5,14 +5,11 @@ import csv
 import codecs
 import MeCab
 from sys import argv
-#import better_exceptions
 import glob
 import logging
 import os
 import pickle
 from gensim.models.word2vec import Word2Vec
-#from tqdm import tqdm
-
 
 ## ファイル読み込み関数
 def read_file_into_lines(file_name):
@@ -141,10 +138,6 @@ class Wiki2Vec:
             token = self.sid2word[sid]
             similar_words_list.append(token)
             similarity_list.append(similarity)
-            # print("{}: {:.2f}".format(token, similarity))
-
-        # print(similar_words_list)
-        # print(similarity_list)
 
         return similar_words_list, similarity_list
 
@@ -166,23 +159,12 @@ polar_dict["www"] = -1
 ## 辞書内に定義されている単語のリスト
 polar_words_list = [d for d in polar_dict]
 
-## パラメータ設定
-"""
-size = 200
-min_count = 20
-window = 10
-sg = 1
-dirname = "size{}-min_count{}-window{}-sg{}".format(size, min_count, window, sg)
-dic_path = "read_file/dictionary.pickle"
-model_path = "learned_model/"+dirname+"/wikipedia.model"
-"""
 
 def recommend_words(text, wiki2vec):
     posi_list = []
     ans_list = []
     morphemes_dict_list = create_mecab_list(text)
     negative_words_list = polar_negative_score(morphemes_dict_list, polar_dict)
-    #wiki2vec = Wiki2Vec(dic_path, model_path)
 
     for negative_word in negative_words_list:
         similar_words_list, similarity_list = wiki2vec.get_similar_tokens(negative_word, 50)
@@ -193,23 +175,7 @@ def recommend_words(text, wiki2vec):
 
         posi_list.append(positive_words_list[0])
 
-        #print('-- {} --'.format(negative_word))
-        #print(similar_words_list)
-        #print(positive_words_list)
-
-    #result = zip(negative_words_list, posi_list)
     for ng, po in zip(negative_words_list, posi_list):
         ans_list.append((ng, po))
 
     return ans_list
-
-    #for val in result:
-        #print(val)
-
-    #return result
-
-
-#with open("input.txt","r", encoding="utf-8") as f:
-    #text = f.read()
-
-#recommend_words(text)
