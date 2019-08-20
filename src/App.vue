@@ -132,8 +132,8 @@ export default {
     font-weight: bold;
   }
   .home-text {
-    font-size: 20px;
-    color: #808080;
+    font-size: 25px;
+    color: #555555;
     text-align: center;
   }
 }
