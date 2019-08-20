@@ -70,8 +70,8 @@ def post_text():
             prob = inference_text.infer(text)
             dic["text_ans"] = prob
         else:
-            dic["text"] = " "
-            dic["text_ans"] = " "
+            dic["text"] = []
+            dic["text_ans"] = 0.00
             pass
     else:
         pass
