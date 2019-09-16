@@ -10,12 +10,13 @@ And also display the degree of flame. In addition, Flaming Checker detects words
   
 Deep learning model was implemented using Chainer.
 And we created three deep learning models for image analysis, text analysis and word recommendation.
-We applied CNN for image analysis, LSTM for text analysis and word2vec for word recommendation.
-CNN and LSTM models trained more than 5,000 data each.
+We applied CNN for image analysis, LSTM for text analysis and Word2Vec for word recommendation.
+The CNN and LSTM models trained more than 5,000 data each.
+The back end is implemented using Flask and Chainer, and the front end is implemented using Vue.js.
   
 In the word recommendation function, Flaming Checker performs emotion analysis of text.
 It evaluates negative words as likely to burn by emotion analysis.
-And recommends words that are similar in meaning and positive by word2vec and emotion analysis.
+And recommends words that are similar in meaning and positive by Word2Vec and emotion analysis.
 
 ## Demo
 
