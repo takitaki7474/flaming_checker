@@ -1,29 +1,25 @@
-# flaming_checker
+# 火の用心 (Flaming Checker)
+## Overview
+Flaming Checker is an app that quantify whether an image or text is likely to burn by deep learning.
 
-## Project setup
-```
-npm install
-```
+## Description
+You can upload one image or text. If you upload an image, Flaming Checker quantify whether the image is a flaming content. 
+And display the degree of flame and advice on what the user should do. 
+On the other hand, if you upload text, Flaming Checker quantify whether the text is a flaming content.
+And also display the degree of flame. In addition, Flaming Checker detects words that are likely to burn and recommends words that are unlikely to burn. And flaming words are displayed in red and recommended words are displayed in blue.
+  
+Deep learning model was implemented using Chainer.
+And we created three deep learning models for image analysis, text analysis and word recommendation.
+We applied CNN for image analysis, LSTM for text analysis and word2vec for word recommendation.
+CNN and LSTM models trained more than 5,000 data each.
+  
+In the word recommendation function, Flaming Checker performs emotion analysis of text.
+It evaluates negative words as likely to burn by emotion analysis.
+And recommends words that are similar in meaning and positive by word2vec and emotion analysis.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Demo
 
-### Compiles and minifies for production
-```
-npm run build
-```
+![flamingCheckerDemo](https://github.com/takitaki7474/algorithm-research/blob/master/gifs_and_images/flaming_checker.gif)
 
-### Run your tests
-```
-npm run test
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
