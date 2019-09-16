@@ -3,6 +3,9 @@
 Flaming Checker is an app that quantify whether an image or text is likely to burn by deep learning.
 
 ## Description
+We have developed an app that determines whether an image or text is likely to burn in advance.
+And expect to prevent users from being sad or slandered after posting flaming contents by this app. 
+  
 You can upload one image or text. If you upload an image, Flaming Checker quantify whether the image is a flaming content. 
 And display the degree of flame and advice on what the user should do. 
 On the other hand, if you upload text, Flaming Checker quantify whether the text is a flaming content.
