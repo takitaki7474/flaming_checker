@@ -23,7 +23,7 @@ And recommends words that are similar in meaning and positive by Word2Vec and em
 
 ## Demo
 
-![flamingCheckerDemo](https://github.com/takitaki7474/algorithm-research/blob/master/gifs_and_images/flaming_checker.gif)
+![flamingCheckerDemo](https://github.com/takitaki7474/flaming_checker/blob/demo-images/demo-images/flaming_checker.gif)
 
 
 
